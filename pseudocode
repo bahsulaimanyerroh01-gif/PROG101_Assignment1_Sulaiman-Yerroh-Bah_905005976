@@ -1,0 +1,58 @@
+PROGRAM SchoolAttendance
+
+CONSTANT GOOD_LIMIT = 90
+CONSTANT RISK_LIMIT = 75
+
+DECLARE numStudents, totalDays, daysPresent, i AS Integer
+DECLARE rate AS Real
+DECLARE studentName, status AS String
+DECLARE goodCount, riskCount, criticalCount AS Integer
+
+FUNCTION calculateRate(daysPresent, totalDays)
+    RETURN daysPresent * 100 / totalDays
+END FUNCTION
+
+FUNCTION getStatus(rate)
+    IF rate >= GOOD_LIMIT THEN
+        RETURN "Good"
+    ELSE IF rate >= RISK_LIMIT THEN
+        RETURN "At risk"
+    ELSE
+        RETURN "Critical"
+    END IF
+END FUNCTION
+
+BEGIN
+    goodCount ← 0
+    riskCount ← 0
+    criticalCount ← 0
+
+    OUTPUT "Enter number of students"
+    INPUT numStudents
+    OUTPUT "Enter total school days"
+    INPUT totalDays
+
+    FOR i ← 1 TO numStudents DO
+        OUTPUT "Enter student name"
+        INPUT studentName
+        OUTPUT "Enter days present"
+        INPUT daysPresent
+
+        rate ← calculateRate(daysPresent, totalDays)
+        status ← getStatus(rate)
+
+        IF status = "Good" THEN
+            goodCount ← goodCount + 1
+        ELSE IF status = "At risk" THEN
+            riskCount ← riskCount + 1
+        ELSE
+            criticalCount ← criticalCount + 1
+        END IF
+
+        OUTPUT studentName, rate, "%", status
+    END FOR
+
+    OUTPUT "Good: ", goodCount
+    OUTPUT "At risk: ", riskCount
+    OUTPUT "Critical: ", criticalCount
+END
