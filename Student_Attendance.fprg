@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="Student_Attendance"/>
+        <attribute name="authors" value="m"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-10-07 03:53:22 pm"/>
+        <attribute name="created" value="bTtERVNLVE9QLTVJM1VPSDg7MjAyNi0xMC0wNzswMjoyODozOSBwbTsyNTEx"/>
+        <attribute name="edited" value="bTtERVNLVE9QLTVJM1VPSDg7MjAyNi0xMC0wNzswMzo1MzoyMiBwbTszOzI2MTI="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="numStudents, daysPresent, totalDays, i" type="Integer" array="False" size=""/>
+            <declare name="rate" type="Real" array="False" size=""/>
+            <declare name="studentName, status" type="String" array="False" size=""/>
+            <declare name="goodCount, riskCount, criticalCount" type="Integer" array="False" size=""/>
+            <output expression="&quot;Enter number of students&quot;" newline="True"/>
+            <input variable="numStudents"/>
+            <output expression="&quot;Enter total school days&quot;" newline="True"/>
+            <input variable="totalDays"/>
+            <assign variable="goodCount" expression="0"/>
+            <assign variable="riskCount" expression="0"/>
+            <assign variable="criticalCount" expression="0"/>
+            <for variable="i" start="1" end="numStudents" direction="inc" step="1">
+                <output expression="&quot;Enter student name&quot;" newline="True"/>
+                <input variable="studentName"/>
+                <output expression="&quot;Enter days present&quot;" newline="True"/>
+                <input variable="daysPresent"/>
+                <assign variable="rate" expression="daysPresent * 100 / totalDays"/>
+                <if expression="rate &gt;= 90">
+                    <then>
+                        <assign variable="status" expression="&quot;Good&quot;"/>
+                        <assign variable="goodCount" expression="goodCount + 1"/>
+                    </then>
+                    <else>
+                        <if expression="rate &gt;=75">
+                            <then>
+                                <assign variable="status" expression="&quot;At Risk&quot;"/>
+                                <assign variable="riskCount" expression="riskCount + 1"/>
+                            </then>
+                            <else>
+                                <assign variable="status" expression="&quot;Critical&quot;"/>
+                                <assign variable="criticalCount" expression="criticalCount + 1"/>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+                <output expression="studentName &amp; &quot; &quot; &amp; rate &amp; &quot;% &quot; &amp; status" newline="True"/>
+            </for>
+            <output expression="&quot;Good: &quot; &amp; goodCount" newline="True"/>
+            <output expression="&quot;At risk: &quot; &amp; riskCount" newline="True"/>
+            <output expression="&quot;Critical: &quot; &amp; criticalCount" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
