@@ -1,21 +1,27 @@
-# Flood Early Warning System
+# Student Attendance Tracking System
 
-**Course:** PROG101 Principles of Programming Logic and Design
+## Project Description
 
-**Student:** Sulaiman Yerroh Bah
+The Student Attendance Tracking System is a logical solution
+designed to help schools monitor and track student attendance.
 
-**Student ID:** 905005976
+## Problem
 
-**Assignment:** Designing Logical Solutions for Sierra Leone Community Challenges
+Manual attendance tracking can make it difficult to identify
+students with low attendance and determine when follow-up may
+be required.
 
-**SDGs:** SDG 11 (Sustainable Cities and Communities), SDG 13 (Climate Action)
+## Proposed Solution
 
-# Problem
-Communities in Sierra Leone get little or no warning before floods.
+The system records student attendance, calculates the attendance
+percentage and classifies the student's attendance status.
 
-# Contents
-- Problem analysis
+## Project Components
+
 - Algorithm
 - Pseudocode
 - Flowchart
-- Report
+- Logical Design
+- SDG 4
+- Open Source
+- Digital Public Goods
